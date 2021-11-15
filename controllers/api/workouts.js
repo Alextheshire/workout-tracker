@@ -40,10 +40,9 @@ router.get("/range",(req,res)=>{
                 totalDuration: { $sum: "$exercises.duration" } 
               }
         }
-    ]).sort({day:1}).limit(7)
+    ]).sort({day:-1}).limit(7)
     
     .then(data=>{
-        console.log(data)
         res.json(data)
     }).catch(err=>{
         console.log(err)
